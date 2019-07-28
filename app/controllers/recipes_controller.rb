@@ -13,4 +13,15 @@ class RecipesController < ApplicationController
 
   def create
   end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).premit(:title, 
+    ingredient_attributes: [
+      :name,
+      :quantity
+      ]
+    )
+  end
 end
